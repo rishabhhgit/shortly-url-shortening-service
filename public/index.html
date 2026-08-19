@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Turn long links into short, memorable URLs in seconds." />
+    <meta name="theme-color" content="#fbf6e9" />
+    <title>Shortly — Links made simple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-one"></div>
+    <div class="page-glow page-glow-two"></div>
+
+    <header class="site-header" id="site-header">
+      <a class="brand" href="/" aria-label="Shortly home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8.8 15.2 15.2 8.8M7.05 17.66l-1.41 1.41a3.5 3.5 0 0 1-4.95-4.95l3.54-3.54a3.5 3.5 0 0 1 4.95 0M16.95 6.34l1.41-1.41a3.5 3.5 0 0 1 4.95 4.95l-3.54 3.54a3.5 3.5 0 0 1-4.95 0" /></svg>
+        </span>
+        <span>shortly</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
+      </button>
+      <nav class="header-nav" id="header-nav" aria-label="Primary navigation">
+        <a class="header-link" href="#recent">My links</a>
+        <a class="header-link header-link-accent" href="#pricing">Golden Pro</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span></span> Simple. Fast. Yours.</div>
+        <h1 id="hero-title">Big links deserve<br /><em>a shorter story.</em></h1>
+        <p class="hero-copy">Turn unwieldy URLs into clean, shareable links in a single click. No account, no clutter.</p>
+
+        <div class="shortener-card">
+          <form id="shorten-form" novalidate>
+            <label for="url-input">Paste your long URL</label>
+            <div class="url-row">
+              <div class="input-shell">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
+                <input id="url-input" name="url" type="text" inputmode="url" autocomplete="url" placeholder="https://your-very-long-link.com/goes-here" required />
+              </div>
+              <button class="primary-button" type="submit">
+                <span class="btn-label">Shorten link</span>
+                <div class="spinner" aria-hidden="true"></div>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+            </div>
+
+            <button class="alias-toggle" type="button" id="alias-toggle" aria-expanded="false" aria-controls="alias-field">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" /></svg>
+              Choose a custom alias
+              <svg class="chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+            <div class="alias-field" id="alias-field" hidden>
+              <span id="domain-prefix"></span>
+              <input id="alias-input" name="customAlias" type="text" minlength="3" maxlength="32" pattern="[a-zA-Z0-9_-]+" placeholder="my-custom-link" aria-label="Custom alias" />
+            </div>
+            <p class="form-message" id="form-message" role="alert"></p>
+          </form>
+
+          <div class="result" id="result" hidden aria-live="polite">
+            <div class="result-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+            </div>
+            <div class="result-content">
+              <span>Your short link is ready</span>
+              <a id="result-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+            <button class="copy-button" type="button" id="copy-result">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="trust-row" aria-label="Product qualities">
+          <span><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3Z" /><path d="m9 12 2 2 4-4" /></svg> Private by design</span>
+          <span><svg viewBox="0 0 24 24"><path d="m13 2-9 12h8l-1 8 9-12h-8Z" /></svg> Instant redirects</span>
+          <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" /></svg> Works everywhere</span>
+        </div>
+      </section>
+
+      <section class="recent-section reveal" id="recent" aria-labelledby="recent-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Your collection</p>
+            <h2 id="recent-title">Recent links</h2>
+          </div>
+          <p>Stored securely in the cloud.</p>
+        </div>
+        <div class="search-bar">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 21l-5.2-5.2M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" /></svg>
+          <input id="search-input" type="search" placeholder="Search links..." aria-label="Search links" />
+        </div>
+        <div class="links-list" id="links-list">
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon"><svg viewBox="0 0 24 24"><path d="M8.8 15.2 15.2 8.8M7.05 17.66l-1.41 1.41a3.5 3.5 0 0 1-4.95-4.95l3.54-3.54a3.5 3.5 0 0 1 4.95 0M16.95 6.34l1.41-1.41a3.5 3.5 0 0 1 4.95 4.95l-3.54 3.54a3.5 3.5 0 0 1-4.95 0" /></svg></div>
+            <h3>Your shortened links will appear here</h3>
+            <p>Paste a URL above to make your first one.</p>
+          </div>
+        </div>
+        <div class="pagination-controls" id="pagination-controls">
+          <span id="pagination-info"></span>
+          <button class="load-more-btn" id="load-more-btn" type="button" hidden>Load more</button>
+        </div>
+      </section>
+
+      <section class="pricing-section reveal" id="pricing" aria-labelledby="pricing-title">
+        <div class="pricing-intro">
+          <p class="section-kicker">A little more shine</p>
+          <h2 id="pricing-title">Upgrade to Golden Pro.</h2>
+          <p>One simple payment. Premium tools for every link you create.</p>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-visual" aria-hidden="true">
+            <div class="gold-orbit gold-orbit-one"></div>
+            <div class="gold-orbit gold-orbit-two"></div>
+            <div class="gold-coin">
+              <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.47 6.03.88-4.36 4.25 1.03 6-5.4-2.84L6.6 19.6l1.03-6-4.36-4.25 6.03-.88Z" /></svg>
+            </div>
+            <span>Lifetime access</span>
+          </div>
+
+          <div class="pricing-content">
+            <div class="plan-name-row">
+              <h3>Golden Pro</h3>
+              <span class="popular-pill">Best value</span>
+            </div>
+            <p class="plan-description">For creators and teams who want their links to work harder.</p>
+            <ul class="feature-list">
+              <li><span>✓</span> Unlimited custom aliases</li>
+              <li><span>✓</span> Complete click history</li>
+              <li><span>✓</span> Priority premium features</li>
+            </ul>
+          </div>
+
+          <div class="pricing-action">
+            <div class="price"><span>₹</span>499</div>
+            <p>One-time payment</p>
+            <button class="payment-button" id="checkout-button" type="button" data-plan="pro" disabled>
+              <span>Get Golden Pro</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+            <small id="payment-note">Checking secure checkout…</small>
+          </div>
+        </div>
+        <p class="secure-payment"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg> Secure checkout and payment verification powered by Razorpay</p>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="/">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.8 15.2 15.2 8.8M7.05 17.66l-1.41 1.41a3.5 3.5 0 0 1-4.95-4.95l3.54-3.54a3.5 3.5 0 0 1 4.95 0M16.95 6.34l1.41-1.41a3.5 3.5 0 0 1 4.95 4.95l-3.54 3.54a3.5 3.5 0 0 1-4.95 0" /></svg></span>
+        <span>shortly</span>
+      </a>
+      <p>Built for links worth sharing.</p>
+    </footer>
+
+    <dialog class="payment-dialog" id="payment-dialog">
+      <div class="dialog-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+      </div>
+      <p class="section-kicker">Payment verified</p>
+      <h2>Welcome to Golden Pro.</h2>
+      <p>Your payment was securely verified. You're all set.</p>
+      <button id="dialog-close" type="button">Continue shortening</button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>
+      <span id="toast-message"></span>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
