@@ -16,8 +16,8 @@ Open <http://localhost:3000>.
 Create test API keys in the Razorpay dashboard, then start the app with the credentials in the environment:
 
 ```bash
-RAZORPAY_KEY_ID=rzp_test_your_key \
-RAZORPAY_KEY_SECRET=your_secret \
+RAZORPAY_KEY_ID=rzp_test_your_key 
+RAZORPAY_KEY_SECRET=your_secret 
 npm start
 ```
 
