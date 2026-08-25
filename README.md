@@ -1,6 +1,6 @@
 # Shortly
 
-A responsive URL shortener with a cream-and-gold interface, click analytics, custom aliases, and Razorpay Checkout.
+A responsive URL shortener with click analytics, custom aliases, and Razorpay Checkout.
 
 ## Run locally
 
